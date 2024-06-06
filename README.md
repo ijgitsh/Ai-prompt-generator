@@ -69,11 +69,12 @@ Click the image below to download and watch the overview video:
 ### Directory Structure
 
     AI-Prompt-Generator/
-    ├── app.py
+    ├── modelserver.py
     ├── index.html
     ├── README.md
     ├── requirements.txt
-    └── venv/
+    ├── ai-prompt-gen.mp4
+    └── aigent.png
 
 
 ### Contributing
