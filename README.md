@@ -6,7 +6,7 @@ This repository contains an application that generates prompts using AI. The app
 
 Click the image below to download and watch the overview video:
 
-[![Watch the video](https://img.icons8.com/clouds/2x/video.png)](https://github.com/ijgitsh/Ai-prompt-generator/blob/main/ai-prompt-gen.mp4)
+[![Watch the video](https://github.com/ijgitsh/Ai-prompt-generator/blob/main/aigent.png)](https://github.com/ijgitsh/Ai-prompt-generator/blob/main/ai-prompt-gen.mp4)
 
 
 ## Setup and Run the Application
