@@ -1,6 +1,7 @@
 # AI Prompt Generator
 
 This repository contains an application that generates prompts using AI. The application consists of a frontend HTML page and a backend Flask API.
+Accompanying Article : https://imanjohari.medium.com/ai-prompt-engineering-assistant-4e52d9f90f60
 
 ## Overview
 
