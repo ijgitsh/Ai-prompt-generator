@@ -42,7 +42,6 @@ Click the image below to download and watch the overview video:
 
 1. Replace the placeholder values in `config.py` with your actual access token and URLs:
     ```python
-    ACCESS_TOKEN = "your_access_token"
     CLOUD_API_KEY = "your_cloud_api_key"
     AUTH_URL = "https://iam.cloud.ibm.com/identity/token"
     PROMPT_URL = "https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs?version=2023-05-02&pattern=modelid_*"
