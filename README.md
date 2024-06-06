@@ -32,18 +32,21 @@ This repository contains an application that generates prompts using AI. The app
 
 ### Configuration
 
-1. Replace the placeholder values in `app.py` with your actual access token and URLs:
+1. Replace the placeholder values in `config.py` with your actual access token and URLs:
     ```python
     ACCESS_TOKEN = "your_access_token"
-    PROMPT_URL = "https://api.example.com/prompt"
+    CLOUD_API_KEY = "your_cloud_api_key"
+    AUTH_URL = "https://iam.cloud.ibm.com/identity/token"
+    PROMPT_URL = "https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs?version=2023-05-02&pattern=modelid_*"
     GENERATE_URL = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
+    PROJECT_ID = "your_project_id"
     ```
 
 ### Running the Application
 
 1. Start the Flask server:
     ```bash
-    python app.py
+    python modelserver.py
     ```
 
 2. Open `index.html` in a web browser to use the application.

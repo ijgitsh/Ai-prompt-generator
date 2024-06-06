@@ -1,34 +1,22 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import requests
+import config
 
-app = Flask(__name__) 
+app = Flask(__name__)
 CORS(app)
 
-# Replace these with your actual access token and URL fetching methods
-ACCESS_TOKEN = "your_access_token"
-
-# Replace with your IBM Cloud API key
-cloud_api_key = 'jQ9wd6iBHEUYhdVJma6iFewH0eYtauyazhsKGQWjIdu2'
-# In most cases the URL for authentication should be this value.
-# If you get an authentication error, check the URL in IBM Cloud
-auth_url = 'https://iam.cloud.ibm.com/identity/token'
-# Make sure to provide public, text URL (not private and not streaming)
-#prompt_url = 'https://us-south.ml.cloud.ibm.com/ml/v1/deployments/llamaextractij/text/generation?version=2021-05-01'
-prompt_url='https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs?version=2023-05-02&pattern=modelid_*'
-
 def get_credentials():
-
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
     }
     data = {
         'grant_type': 'urn:ibm:params:oauth:grant-type:apikey',
-        'apikey': cloud_api_key,
+        'apikey': config.CLOUD_API_KEY,
     }
     # Use the requests library to make the HTTP request
-    response = requests.post(auth_url, headers=headers, data=data, verify=False)
+    response = requests.post(config.AUTH_URL, headers=headers, data=data, verify=False)
 
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
@@ -55,7 +43,7 @@ def invoke_prompt(access_token):
         "Authorization": f"Bearer {access_token}",
     }
 
-    response = requests.get(prompt_url, headers=headers)
+    response = requests.get(config.PROMPT_URL, headers=headers)
 
     if response.status_code == 200:
         generated_text = response.json()
@@ -81,14 +69,13 @@ def get_prompts():
     data = request.get_json()
     models = data.get('models', [])
     text = data.get('text', '')
-    access_token = get_credentials() 
+    access_token = get_credentials()
     print("Received models:", models)
     print("Received text:", text)
 
     results = []
-    projectid="c6e59745-c0ca-44a2-841b-58c857227119"
     for modelType in models:
-        print("getting prompt for "+ modelType)
+        print("getting prompt for " + modelType)
         post_data = {
             "input": (
                 "context: You are an expert in artificial intelligence and prompt engineering. Your task is to create a comprehensive and detailed prompt for an AI system to generate high-quality responses. The prompt should include specific instructions, context, and examples to ensure the AI understands the task and produces accurate, relevant, and concise answers.\n"
@@ -110,7 +97,7 @@ def get_prompts():
                 "repetition_penalty": 1
             },
             "model_id": modelType,
-            "project_id": projectid,
+            "project_id": config.PROJECT_ID,
             "moderations": {
                 "hap": {
                     "input": {
@@ -130,22 +117,20 @@ def get_prompts():
                 }
             }
         }
-        
+
         headers = {
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": f"Bearer {access_token}",
         }
-        url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
         response = requests.post(
-            url,
+            config.GENERATE_URL,
             headers=headers,
             json=post_data
         )
         generated_text = "This model does not support this function"
         if response.status_code != 200:
-            #raise Exception("Non-200 response: " + str(response.text))
-            print("error generating for"+ modelType)
+            print("error generating for " + modelType)
             results.append({"model": modelType, "generated_text": "does not support"})
         else:
             response_data = response.json()
@@ -158,10 +143,6 @@ def get_prompts():
             results.append({"model": modelType, "generated_text": generated_text})
 
     return jsonify(results)
-
-
-
-    
 
 if __name__ == '__main__':
     app.run(debug=True)
