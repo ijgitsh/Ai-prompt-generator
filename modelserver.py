@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__) 
 CORS(app)
 
 # Replace these with your actual access token and URL fetching methods

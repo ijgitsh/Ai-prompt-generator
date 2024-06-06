@@ -6,7 +6,7 @@ This repository contains an application that generates prompts using AI. The app
 
 ### Prerequisites
 
-- Python 3.7 or later
+- Python 3.7 or later 
 - Flask
 - Flask-CORS
 - Requests
