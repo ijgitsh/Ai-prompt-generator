@@ -64,6 +64,7 @@ Click the image below to download and watch the overview video:
     e.g. a prompt to classify an email with time-sensitive or non-time-sensitive - my output should be json
     e.g. a prompt to extract places, dates and people 
     ```
+6. ATTENTION: THE MORE MODELS YOU CHOOSE, THE LONGER YOU NEED TO WAIT - TRY COUPLE OF MODELS FIRST AND THEN EXPAND 
 
 ### Directory Structure
 
