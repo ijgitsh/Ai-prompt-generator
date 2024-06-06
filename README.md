@@ -7,10 +7,7 @@ This repository contains an application that generates prompts using AI. The app
 Click the image below to download and watch the overview video:
 
 [![Watch the video](https://github.com/ijgitsh/Ai-prompt-generator/blob/main/aigent.png)](https://github.com/ijgitsh/Ai-prompt-generator/blob/main/ai-prompt-gen.mp4)
-<video width="600" controls>
-  <source src="https://github.com/ijgitsh/Ai-prompt-generator/blob/main/ai-prompt-gen.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
 
 ## Setup and Run the Application
 
