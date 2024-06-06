@@ -22,7 +22,7 @@ Click the image below to download and watch the overview video:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/AI-Prompt-Generator.git
+    git clone https://github.com/ijgitsh/AI-Prompt-Generator.git
     cd AI-Prompt-Generator
     ```
 
