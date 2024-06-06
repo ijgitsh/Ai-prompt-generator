@@ -14,4 +14,4 @@ PROMPT_URL = 'https://us-south.ml.cloud.ibm.com/ml/v1/foundation_model_specs?ver
 GENERATE_URL = 'https://us-south.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29'
 
 # watsonx.ai Project ID
-PROJECT_ID = "c6e59745-c0ca-44a2-841b-58c857227119"
+PROJECT_ID = ""
