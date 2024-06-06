@@ -50,6 +50,11 @@ This repository contains an application that generates prompts using AI. The app
     ```
 
 2. Open `index.html` in a web browser to use the application.
+3. Click on the hamburger menu on the top left
+4. Select foundation models you want to use to generate your prompt
+5. In the input box give a short description of what you want to do 
+    e.g. a prompt to classify an email with time-sensitive or non-time-sensitive - my output should be json
+    e.g. a prompt to extract places, dates and people 
 
 ### Directory Structure
 
